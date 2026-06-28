@@ -15,6 +15,7 @@ ORDERED_OBJS += \
 "./ti_msp_dl_config.o" \
 "./startup_mspm0g350x_ticlang.o" \
 "./grayscale.o" \
+"./motor.o" \
 "./usart.o" \
 $(GEN_CMDS__FLAG) \
 -Wl,-ldevice.cmd.genlibs \
@@ -119,28 +120,28 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-12wayGrayscale.out 
+12way_car.out 
 
 EXE_OUTPUTS__QUOTED += \
-"12wayGrayscale.out" 
+"12way_car.out" 
 
 
 # All Target
 all: $(OBJS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "12wayGrayscale.out"
+	@$(MAKE) --no-print-directory -Onone "12way_car.out"
 
 # Tool invocations
-12wayGrayscale.out: $(OBJS) $(GEN_CMDS)
+12way_car.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Arm Linker - building target: "$@"'
-	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wall -Wl,-m"12wayGrayscale.map" -Wl,-i"D:/ti/mspm0_sdk_2_10_00_04/source" -Wl,-i"C:/Users/hp/workspace_ccstheia/12wayGrayscale" -Wl,-i"C:/Users/hp/workspace_ccstheia/12wayGrayscale/Debug/syscfg" -Wl,-i"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="12wayGrayscale_linkInfo.xml" -Wl,--rom_model -o "12wayGrayscale.out" $(ORDERED_OBJS)
+	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wall -Wl,-m"12way_car.map" -Wl,-i"D:/ti/mspm0_sdk_2_10_00_04/source" -Wl,-i"C:/Users/hp/workspace_ccstheia/12way_car" -Wl,-i"C:/Users/hp/workspace_ccstheia/12way_car/Debug/syscfg" -Wl,-i"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="12way_car_linkInfo.xml" -Wl,--rom_model -o "12way_car.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "delay.o" "empty.o" "ti_msp_dl_config.o" "startup_mspm0g350x_ticlang.o" "grayscale.o" "usart.o" 
-	-$(RM) "delay.d" "empty.d" "ti_msp_dl_config.d" "startup_mspm0g350x_ticlang.d" "grayscale.d" "usart.d" 
+	-$(RM) "delay.o" "empty.o" "ti_msp_dl_config.o" "startup_mspm0g350x_ticlang.o" "grayscale.o" "motor.o" "usart.o" 
+	-$(RM) "delay.d" "empty.d" "ti_msp_dl_config.d" "startup_mspm0g350x_ticlang.d" "grayscale.d" "motor.d" "usart.d" 
 	-@echo ' '
 
 .PHONY: all clean dependents

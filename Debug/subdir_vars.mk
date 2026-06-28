@@ -14,6 +14,7 @@ C_SRCS += \
 ./ti_msp_dl_config.c \
 D:/ti/mspm0_sdk_2_10_00_04/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0g350x_ticlang.c \
 ../grayscale.c \
+../motor.c \
 ../usart.c 
 
 GEN_CMDS += \
@@ -30,6 +31,7 @@ C_DEPS += \
 ./ti_msp_dl_config.d \
 ./startup_mspm0g350x_ticlang.d \
 ./grayscale.d \
+./motor.d \
 ./usart.d 
 
 GEN_OPTS += \
@@ -41,6 +43,7 @@ OBJS += \
 ./ti_msp_dl_config.o \
 ./startup_mspm0g350x_ticlang.o \
 ./grayscale.o \
+./motor.o \
 ./usart.o 
 
 GEN_MISC_FILES += \
@@ -54,6 +57,7 @@ OBJS__QUOTED += \
 "ti_msp_dl_config.o" \
 "startup_mspm0g350x_ticlang.o" \
 "grayscale.o" \
+"motor.o" \
 "usart.o" 
 
 GEN_MISC_FILES__QUOTED += \
@@ -67,6 +71,7 @@ C_DEPS__QUOTED += \
 "ti_msp_dl_config.d" \
 "startup_mspm0g350x_ticlang.d" \
 "grayscale.d" \
+"motor.d" \
 "usart.d" 
 
 GEN_FILES__QUOTED += \
@@ -80,6 +85,7 @@ C_SRCS__QUOTED += \
 "./ti_msp_dl_config.c" \
 "D:/ti/mspm0_sdk_2_10_00_04/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0g350x_ticlang.c" \
 "../grayscale.c" \
+"../motor.c" \
 "../usart.c" 
 
 SYSCFG_SRCS__QUOTED += \

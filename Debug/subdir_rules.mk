@@ -7,32 +7,32 @@ SHELL = cmd.exe
 # Each subdirectory must supply rules for building sources it contributes
 %.o: ../%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Arm Compiler - building file: "$<"'
-	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"C:/Users/hp/workspace_ccstheia/12wayGrayscale" -I"C:/Users/hp/workspace_ccstheia/12wayGrayscale/Debug" -I"D:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_2_10_00_04/source" -gdwarf-3 -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"C:/Users/hp/workspace_ccstheia/12way_car" -I"C:/Users/hp/workspace_ccstheia/12way_car/Debug" -I"D:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_2_10_00_04/source" -gdwarf-3 -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-build-2009846878: ../empty.syscfg
+build-1518098384: ../empty.syscfg
 	@echo 'SysConfig - building file: "$<"'
-	"D:/ti/ccs2050/sysconfig_1.26.2/sysconfig_cli.bat" -s "D:/ti/mspm0_sdk_2_10_00_04/.metadata/product.json" --script "C:/Users/hp/workspace_ccstheia/12wayGrayscale/empty.syscfg" -o "." --compiler ticlang
+	"D:/ti/ccs2050/sysconfig_1.26.2/sysconfig_cli.bat" -s "D:/ti/mspm0_sdk_2_10_00_04/.metadata/product.json" --script "C:/Users/hp/workspace_ccstheia/12way_car/empty.syscfg" -o "." --compiler ticlang
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-device_linker.cmd: build-2009846878 ../empty.syscfg
-device.opt: build-2009846878
-device.cmd.genlibs: build-2009846878
-ti_msp_dl_config.c: build-2009846878
-ti_msp_dl_config.h: build-2009846878
-Event.dot: build-2009846878
+device_linker.cmd: build-1518098384 ../empty.syscfg
+device.opt: build-1518098384
+device.cmd.genlibs: build-1518098384
+ti_msp_dl_config.c: build-1518098384
+ti_msp_dl_config.h: build-1518098384
+Event.dot: build-1518098384
 
 %.o: ./%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Arm Compiler - building file: "$<"'
-	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"C:/Users/hp/workspace_ccstheia/12wayGrayscale" -I"C:/Users/hp/workspace_ccstheia/12wayGrayscale/Debug" -I"D:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_2_10_00_04/source" -gdwarf-3 -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"C:/Users/hp/workspace_ccstheia/12way_car" -I"C:/Users/hp/workspace_ccstheia/12way_car/Debug" -I"D:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_2_10_00_04/source" -gdwarf-3 -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
 startup_mspm0g350x_ticlang.o: D:/ti/mspm0_sdk_2_10_00_04/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0g350x_ticlang.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Arm Compiler - building file: "$<"'
-	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"C:/Users/hp/workspace_ccstheia/12wayGrayscale" -I"C:/Users/hp/workspace_ccstheia/12wayGrayscale/Debug" -I"D:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_2_10_00_04/source" -gdwarf-3 -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+	"D:/ti/ccs2050/ccs/tools/compiler/ti-cgt-armllvm_4.0.4.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"C:/Users/hp/workspace_ccstheia/12way_car" -I"C:/Users/hp/workspace_ccstheia/12way_car/Debug" -I"D:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_2_10_00_04/source" -gdwarf-3 -Wall -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
