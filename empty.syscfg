@@ -1,0 +1,92 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --device "MSPM0G350X" --part "Default" --package "LQFP-64(PM)" --product "mspm0_sdk@2.10.00.04"
+ * @v2CliArgs --device "MSPM0G3507" --package "LQFP-64(PM)" --product "mspm0_sdk@2.10.00.04"
+ * @versions {"tool":"1.26.2+4477"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const GPIO    = scripting.addModule("/ti/driverlib/GPIO", {}, false);
+const GPIO1   = GPIO.addInstance();
+const GPIO2   = GPIO.addInstance();
+const SYSCTL  = scripting.addModule("/ti/driverlib/SYSCTL");
+const SYSTICK = scripting.addModule("/ti/driverlib/SYSTICK");
+const UART    = scripting.addModule("/ti/driverlib/UART", {}, false);
+const UART1   = UART.addInstance();
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+GPIO1.$name                         = "LED";
+GPIO1.port                          = "PORTB";
+GPIO1.associatedPins[0].$name       = "PIN_22";
+GPIO1.associatedPins[0].assignedPin = "22";
+
+const Board = scripting.addModule("/ti/driverlib/Board", {}, false);
+
+GPIO2.$name                          = "Grays";
+GPIO2.port                           = "PORTB";
+GPIO2.associatedPins.create(12);
+GPIO2.associatedPins[0].$name        = "PIN_0";
+GPIO2.associatedPins[0].direction    = "INPUT";
+GPIO2.associatedPins[0].pin.$assign  = "PB0";
+GPIO2.associatedPins[1].$name        = "PIN_1";
+GPIO2.associatedPins[1].direction    = "INPUT";
+GPIO2.associatedPins[1].pin.$assign  = "PB1";
+GPIO2.associatedPins[2].$name        = "PIN_2";
+GPIO2.associatedPins[2].direction    = "INPUT";
+GPIO2.associatedPins[2].pin.$assign  = "PB2";
+GPIO2.associatedPins[3].$name        = "PIN_3";
+GPIO2.associatedPins[3].direction    = "INPUT";
+GPIO2.associatedPins[3].pin.$assign  = "PB3";
+GPIO2.associatedPins[4].$name        = "PIN_4";
+GPIO2.associatedPins[4].direction    = "INPUT";
+GPIO2.associatedPins[4].pin.$assign  = "PB4";
+GPIO2.associatedPins[5].$name        = "PIN_5";
+GPIO2.associatedPins[5].direction    = "INPUT";
+GPIO2.associatedPins[5].pin.$assign  = "PB5";
+GPIO2.associatedPins[6].$name        = "PIN_6";
+GPIO2.associatedPins[6].direction    = "INPUT";
+GPIO2.associatedPins[6].pin.$assign  = "PB6";
+GPIO2.associatedPins[7].$name        = "PIN_7";
+GPIO2.associatedPins[7].direction    = "INPUT";
+GPIO2.associatedPins[7].pin.$assign  = "PB7";
+GPIO2.associatedPins[8].$name        = "PIN_8";
+GPIO2.associatedPins[8].direction    = "INPUT";
+GPIO2.associatedPins[8].pin.$assign  = "PB8";
+GPIO2.associatedPins[9].$name        = "PIN_9";
+GPIO2.associatedPins[9].direction    = "INPUT";
+GPIO2.associatedPins[9].pin.$assign  = "PB9";
+GPIO2.associatedPins[10].$name       = "PIN_10";
+GPIO2.associatedPins[10].direction   = "INPUT";
+GPIO2.associatedPins[10].pin.$assign = "PB10";
+GPIO2.associatedPins[11].$name       = "PIN_11";
+GPIO2.associatedPins[11].pin.$assign = "PB11";
+
+SYSCTL.forceDefaultClkConfig = true;
+
+SYSTICK.periodEnable  = true;
+SYSTICK.period        = 32;
+SYSTICK.systickEnable = true;
+
+UART1.$name                    = "UART_0";
+UART1.targetBaudRate           = 115200;
+UART1.peripheral.$assign       = "UART0";
+UART1.peripheral.rxPin.$assign = "PA11";
+UART1.peripheral.txPin.$assign = "PA10";
+UART1.txPinConfig.$name        = "ti_driverlib_gpio_GPIOPinGeneric0";
+UART1.rxPinConfig.$name        = "ti_driverlib_gpio_GPIOPinGeneric1";
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+GPIO1.associatedPins[0].pin.$suggestSolution = "PB22";
+Board.peripheral.$suggestSolution            = "DEBUGSS";
+Board.peripheral.swclkPin.$suggestSolution   = "PA20";
+Board.peripheral.swdioPin.$suggestSolution   = "PA19";
+SYSCTL.peripheral.$suggestSolution           = "SYSCTL";
