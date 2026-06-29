@@ -107,6 +107,7 @@ static uint8_t gFilterInit  = 1U;     /* 首次初始化标志 first-init flag  
  *===========================================================================*/
 static float  gLastValidPos = 0.0f;  /* 最后有效位置 last valid position  */
 static uint8_t gLineLost    = 0U;    /* 丢线标志 line-lost flag           */
+static uint8_t gPrevLineLost = 0U;   /* 上一周期丢线标志 prev lost flag   */
 
 /*===========================================================================
  * 加权位置计算
@@ -246,11 +247,21 @@ float PID_Update(uint16_t sensor_values)
     /* Step 1: 加权位置计算 */
     raw_position = PID_CalculatePosition(sensor_values);
 
-    /* Step 1.5: 丢线检查 — 全白/全黑时停车 */
+    /* Step 1.5: 丢线检查 — 全白时停车 */
     if (gLineLost) {
         Motor_Stop();
         gOutput = 0.0f;
+        gPrevLineLost = 1U;
         return 0.0f;
+    }
+
+    /* 重新找到线 — 清空积分和滤波状态, 避免上次运行的残留 */
+    if (gPrevLineLost) {
+        gIntegral    = 0.0f;
+        gDerivative  = 0.0f;
+        gPrevError   = 0.0f;
+        gFilterInit  = 1U;
+        gPrevLineLost = 0U;
     }
 
     /* Step 2: EMA 低通滤波 */
@@ -308,7 +319,8 @@ void PID_Init(float Kp, float Ki, float Kd, float base_speed, float trim)
     gFilteredPos = 0.0f;
     gFilterInit  = 1U;
     gLastValidPos = 0.0f;
-    gLineLost    = 0U;
+    gLineLost     = 0U;
+    gPrevLineLost = 0U;
 }
 
 /*===========================================================================
