@@ -37,9 +37,9 @@
  *   output  = clamp(output, ±output_limit)
  *
  * 差速转向 (Differential Steering):
- *   左轮速度 = base_speed - output  (正值输出 → 左轮减速 → 左转)
- *   右轮速度 = base_speed + output  (正值输出 → 右轮加速 → 左转)
- *   速度均钳位在 [0, 100] 范围内
+ *   左轮速度 = base_speed - output + trim  (正trim → 左轮多出力 → 右转倾向)
+ *   右轮速度 = base_speed + output - trim
+ *   trim 补偿物理偏斜, 速度均钳位在 [0, 100] 范围内
  */
 
 #include "pid.h"
@@ -75,6 +75,7 @@ static float gSetpoint = 0.0f;       /* 目标位置 (0=居中) Target position 
 static float gOutputLimit   = 50.0f; /* 输出限幅 (跟随 base_speed)        */
 static float gIntegralLimit = 30.0f; /* 积分限幅 (抗饱和 anti-windup)     */
 static float gBaseSpeed     = 50.0f; /* 基础电机速度 Base motor speed     */
+static float gTrim          = 0.0f;  /* 左右轮补偿 Trim for L/R imbalance */
 
 /*===========================================================================
  * EMA 滤波系数 (指数移动平均)
@@ -263,10 +264,11 @@ float PID_Update(uint16_t sensor_values)
     output = PID_Compute(gError);
 
     /* Step 5: 差速转向 — 将 PID 输出分配到左右电机
-     * 左轮 = base - output (正输出 → 左轮减速 → 左转)
-     * 右轮 = base + output (正输出 → 右轮加速 → 左转) */
-    left_speed  = gBaseSpeed - output;
-    right_speed = gBaseSpeed + output;
+     * 左轮 = base - output + trim (正trim → 左轮多出力 → 右转倾向)
+     * 右轮 = base + output - trim
+     * trim 补偿物理偏斜: 车老偏左设正值, 老偏右设负值 */
+    left_speed  = gBaseSpeed - output + gTrim;
+    right_speed = gBaseSpeed + output - gTrim;
 
     /* 速度钳位 [0, 100] */
     if (left_speed < 0.0f)  left_speed = 0.0f;
@@ -284,7 +286,7 @@ float PID_Update(uint16_t sensor_values)
  * 初始化
  * Initialization
  *===========================================================================*/
-void PID_Init(float Kp, float Ki, float Kd, float base_speed)
+void PID_Init(float Kp, float Ki, float Kd, float base_speed, float trim)
 {
     gKp = Kp;
     gKi = Ki;
@@ -292,8 +294,9 @@ void PID_Init(float Kp, float Ki, float Kd, float base_speed)
     gSetpoint = 0.0f;
 
     /* 输出限幅设为与基础速度相同 (修正量不超过基础速度) */
-    gBaseSpeed    = base_speed;
-    gOutputLimit  = base_speed;
+    gBaseSpeed     = base_speed;
+    gTrim          = trim;
+    gOutputLimit   = base_speed;
     gIntegralLimit = base_speed * 0.3f;  /* 积分上限 = 30% base_speed */
 
     /* 初始化所有运行时状态 */

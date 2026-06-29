@@ -55,9 +55,11 @@
  * @param Ki         积分增益  Integral gain
  * @param Kd         微分增益  Derivative gain
  * @param base_speed 基础电机速度 (0~100%)  Base motor speed
+ * @param trim       左右轮补偿 (0~100%)  正值=左轮加速/右轮减速 → 右转倾向
+ *                   补偿物理偏斜: 车老偏左设正值, 老偏右设负值, 典型 2~8
  * @note  调用前必须先初始化 Motor 模块 (Motor_Init)。
  */
-void PID_Init(float Kp, float Ki, float Kd, float base_speed);
+void PID_Init(float Kp, float Ki, float Kd, float base_speed, float trim);
 
 /**
  * @brief 完整 PID 更新周期 — 传感器 → 位置 → 滤波 → PID → 电机。
