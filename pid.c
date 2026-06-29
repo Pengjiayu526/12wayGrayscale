@@ -294,7 +294,7 @@ void PID_Init(float Kp, float Ki, float Kd, float base_speed)
     /* 输出限幅设为与基础速度相同 (修正量不超过基础速度) */
     gBaseSpeed    = base_speed;
     gOutputLimit  = base_speed;
-    gIntegralLimit = base_speed * 0.6f;  /* 积分上限 = 60% base_speed */
+    gIntegralLimit = base_speed * 0.3f;  /* 积分上限 = 30% base_speed */
 
     /* 初始化所有运行时状态 */
     gError       = 0.0f;

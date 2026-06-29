@@ -1,7 +1,7 @@
 ******************************************************************************
             TI ARM Clang Linker PC v4.0.4                      
 ******************************************************************************
->> Linked Mon Jun 29 13:45:50 2026
+>> Linked Mon Jun 29 19:14:30 2026
 
 OUTPUT FILE NAME:   <12way_car.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00003581
@@ -62,18 +62,18 @@ section   page    origin      length       input sections
                   00001c00    000000e0     libc.a : setvbuf.c.obj (.text.setvbuf)
                   00001ce0    000000d8            : s_scalbn.c.obj (.text.scalbn)
                   00001db8    000000d8     libclang_rt.builtins.a : addsf3.S.obj (.text)
-                  00001e90    000000bc     empty.o (.text.main)
-                  00001f4c    000000a2     libclang_rt.builtins.a : udivmoddi4.S.obj (.text)
-                  00001fee    00000002                            : aeabi_div0.c.obj (.text.__aeabi_idiv0)
-                  00001ff0    0000009c     libc.a : fputc.c.obj (.text.fputc)
-                  0000208c    0000009a            : memcpy16.S.obj (.text:memcpy)
-                  00002126    00000002     libclang_rt.builtins.a : aeabi_div0.c.obj (.text.__aeabi_ldiv0)
-                  00002128    00000090     ti_msp_dl_config.o (.text.SYSCFG_DL_GPIO_init)
-                  000021b8    0000008c     pid.o (.text.PID_Init)
-                  00002244    0000008c     ti_msp_dl_config.o (.text.SYSCFG_DL_PWM_0_init)
-                  000022d0    0000008c     libclang_rt.builtins.a : mulsf3.S.obj (.text.__mulsf3)
-                  0000235c    00000004     libsysbm.a : hostexit.c.obj (.text.HOSTexit)
-                  00002360    00000088     libc.a : strcmp-armv6m.S.obj (.text:strcmp)
+                  00001e90    000000b8     empty.o (.text.main)
+                  00001f48    000000a2     libclang_rt.builtins.a : udivmoddi4.S.obj (.text)
+                  00001fea    00000002                            : aeabi_div0.c.obj (.text.__aeabi_idiv0)
+                  00001fec    0000009c     libc.a : fputc.c.obj (.text.fputc)
+                  00002088    0000009a            : memcpy16.S.obj (.text:memcpy)
+                  00002122    00000002     libclang_rt.builtins.a : aeabi_div0.c.obj (.text.__aeabi_ldiv0)
+                  00002124    00000090     ti_msp_dl_config.o (.text.SYSCFG_DL_GPIO_init)
+                  000021b4    0000008c     pid.o (.text.PID_Init)
+                  00002240    0000008c     ti_msp_dl_config.o (.text.SYSCFG_DL_PWM_0_init)
+                  000022cc    0000008c     libclang_rt.builtins.a : mulsf3.S.obj (.text.__mulsf3)
+                  00002358    00000008     libc.a : aeabi_portable.c.obj (.text.__aeabi_errno_addr)
+                  00002360    00000088            : strcmp-armv6m.S.obj (.text:strcmp)
                   000023e8    00000082     libclang_rt.builtins.a : divsf3.S.obj (.text.__divsf3)
                   0000246a    00000002     libc.a : _lock.c.obj (.text._nop)
                   0000246c    0000007c            : fclose.c.obj (.text.__TI_closefile)
@@ -180,16 +180,16 @@ section   page    origin      length       input sections
                   00003844    00000010     libclang_rt.builtins.a : adddf3.S.obj (.tramp.__aeabi_dsub.1)
                   00003854    0000000a     libc.a : _printfi.c.obj (.text.OUTLINED_FUNCTION_1)
                   0000385e    00000002     --HOLE-- [fill = 0]
-                  00003860    00000008            : aeabi_portable.c.obj (.text.__aeabi_errno_addr)
-                  00003868    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
-                  00003870    00000008     libc.a : printf.c.obj (.text._outc)
-                  00003878    00000008            : printf.c.obj (.text._outs)
-                  00003880    00000008            : fseek.c.obj (.text.fseek)
-                  00003888    00000008     libsysbm.a : remove.c.obj (.text.remove)
-                  00003890    00000006     libc.a : exit.c.obj (.text:abort)
-                  00003896    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
-                  0000389a    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
-                  0000389e    00000002     --HOLE-- [fill = 0]
+                  00003860    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
+                  00003868    00000008     libc.a : printf.c.obj (.text._outc)
+                  00003870    00000008            : printf.c.obj (.text._outs)
+                  00003878    00000008            : fseek.c.obj (.text.fseek)
+                  00003880    00000008     libsysbm.a : remove.c.obj (.text.remove)
+                  00003888    00000006     libc.a : exit.c.obj (.text:abort)
+                  0000388e    00000004     libsysbm.a : hostexit.c.obj (.text.HOSTexit)
+                  00003892    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  00003896    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+                  0000389a    00000006     --HOLE-- [fill = 0]
 
 .cinit     0    00003a30    000000a0     
                   00003a30    00000077     (.cinit..data.load) [load image, compression = lzss]
@@ -276,14 +276,14 @@ MODULE SUMMARY
     .\
        pid.o                          1124    0         54     
        ti_msp_dl_config.o             564     23        0      
-       empty.o                        188     72        2      
+       empty.o                        184     72        2      
        usart.o                        92      0         131    
        startup_mspm0g350x_ticlang.o   6       192       0      
        motor.o                        144     0         0      
        grayscale.o                    108     0         0      
        delay.o                        60      0         0      
     +--+------------------------------+-------+---------+---------+
-       Total:                         2286    287       187    
+       Total:                         2282    287       187    
                                                                
     D:/ti/mspm0_sdk_2_10_00_04/source/ti/driverlib/lib/ticlang/m0p/mspm0g1x0x_g3x0x/driverlib.a
        dl_timer.o                     356     0         0      
@@ -380,7 +380,7 @@ MODULE SUMMARY
        Stack:                         0       0         512    
        Linker Generated:              0       155       0      
     +--+------------------------------+-------+---------+---------+
-       Grand Total:                   14280   735       3672   
+       Grand Total:                   14276   735       3672   
 
 
 LINKER GENERATED COPY TABLES
@@ -417,7 +417,7 @@ address   name
 0000101f  ADC0_IRQHandler                 
 0000101f  ADC1_IRQHandler                 
 0000101f  AES_IRQHandler                  
-0000235c  C$$EXIT                         
+0000388e  C$$EXIT                         
 000033b9  C$$IO$$                         
 0000101f  CANFD0_IRQHandler               
 0000101f  DAC0_IRQHandler                 
@@ -435,7 +435,7 @@ address   name
 0000101f  GROUP1_IRQHandler               
 000025d9  Grayscale_ReadAll               
 00002f6d  HOSTclose                       
-0000235d  HOSTexit                        
+0000388f  HOSTexit                        
 00002645  HOSTlseek                       
 00002ab5  HOSTopen                        
 00002c2d  HOSTread                        
@@ -455,17 +455,17 @@ address   name
 000037e9  PID_GetFilteredPosition         
 000037f5  PID_GetIntegral                 
 00003801  PID_GetOutput                   
-000021b9  PID_Init                        
+000021b5  PID_Init                        
 0000380d  PID_IsLineLost                  
 00001841  PID_Update                      
 0000101f  PendSV_Handler                  
 0000101f  RTC_IRQHandler                  
-00003897  Reset_Handler                   
+00003893  Reset_Handler                   
 0000101f  SPI0_IRQHandler                 
 0000101f  SPI1_IRQHandler                 
 0000101f  SVC_Handler                     
-00002129  SYSCFG_DL_GPIO_init             
-00002245  SYSCFG_DL_PWM_0_init            
+00002125  SYSCFG_DL_GPIO_init             
+00002241  SYSCFG_DL_PWM_0_init            
 00003081  SYSCFG_DL_SYSCTL_init           
 0000368d  SYSCFG_DL_SYSTICK_init          
 00002b15  SYSCFG_DL_UART_0_init           
@@ -538,7 +538,7 @@ ffffffff  __TI_prof_data_start
 00001b1d  __aeabi_dmul                    
 00000e8d  __aeabi_dsub                    
 20200a44  __aeabi_errno                   
-00003861  __aeabi_errno_addr              
+00002359  __aeabi_errno_addr              
 00003141  __aeabi_f2d                     
 000032ed  __aeabi_f2iz                    
 00001dc3  __aeabi_fadd                    
@@ -548,21 +548,21 @@ ffffffff  __TI_prof_data_start
 00002a19  __aeabi_fcmple                  
 00002a05  __aeabi_fcmplt                  
 000023e9  __aeabi_fdiv                    
-000022d1  __aeabi_fmul                    
+000022cd  __aeabi_fmul                    
 00001db9  __aeabi_fsub                    
 00003489  __aeabi_i2d                     
 00002d8d  __aeabi_idiv                    
-00001fef  __aeabi_idiv0                   
+00001feb  __aeabi_idiv0                   
 00002d8d  __aeabi_idivmod                 
-00002127  __aeabi_ldiv0                   
+00002123  __aeabi_ldiv0                   
 00003635  __aeabi_llsl                    
 000035a9  __aeabi_lmul                    
 00003819  __aeabi_memclr                  
 00003819  __aeabi_memclr4                 
 00003819  __aeabi_memclr8                 
-00003869  __aeabi_memcpy                  
-00003869  __aeabi_memcpy4                 
-00003869  __aeabi_memcpy8                 
+00003861  __aeabi_memcpy                  
+00003861  __aeabi_memcpy4                 
+00003861  __aeabi_memcpy8                 
 000037a5  __aeabi_memset                  
 000037a5  __aeabi_memset4                 
 000037a5  __aeabi_memset8                 
@@ -595,7 +595,7 @@ UNDEFED   __mpu_init
 00001b1d  __muldf3                        
 000035a9  __muldi3                        
 000032b1  __muldsi3                       
-000022d1  __mulsf3                        
+000022cd  __mulsf3                        
 000027f5  __nedf2                         
 00003275  __nesf2                         
 20207e00  __stack                         
@@ -605,7 +605,7 @@ UNDEFED   __mpu_init
 20200000  __stop___llvm_prf_cnts          
 00000e8d  __subdf3                        
 00001db9  __subsf3                        
-00001f4d  __udivmoddi4                    
+00001f49  __udivmoddi4                    
 00003581  _c_int00_noargs                 
 20200970  _device                         
 20200800  _ftable                         
@@ -614,9 +614,9 @@ UNDEFED   __mpu_init
 202009e8  _stream                         
 20200000  _sys_memory                     
 UNDEFED   _system_post_cinit              
-0000389b  _system_pre_init                
+00003897  _system_pre_init                
 20200a4c  _unlock                         
-00003891  abort                           
+00003889  abort                           
 0000151d  aligned_alloc                   
 00003181  atoi                            
 ffffffff  binit                           
@@ -624,12 +624,12 @@ ffffffff  binit
 000031fd  delay_us                        
 000033c1  exit                            
 000033f5  finddevice                      
-00001ff1  fputc                           
+00001fed  fputc                           
 0000193d  fputs                           
 00001a35  free                            
 00002b75  frexp                           
 00002b75  frexpl                          
-00003881  fseek                           
+00003879  fseek                           
 0000271d  fseeko                          
 00002789  getdevice                       
 00000000  interruptVectors                
@@ -640,7 +640,7 @@ ffffffff  binit
 00003825  malloc                          
 0000151d  memalign                        
 000035f1  memccpy                         
-0000208d  memcpy                          
+00002089  memcpy                          
 00002a53  memset                          
 20200c50  parmbuf                         
 00002bd1  printf                          
@@ -648,7 +648,7 @@ ffffffff  binit
 202008f0  recv0_buff                      
 20200a8a  recv0_flag                      
 20200a86  recv0_length                    
-00003889  remove                          
+00003881  remove                          
 00001ce1  scalbn                          
 00001ce1  scalbnl                         
 00001c01  setvbuf                         
@@ -731,18 +731,17 @@ address   name
 00001dc3  __addsf3                        
 00001dc3  __aeabi_fadd                    
 00001e91  main                            
-00001f4d  __udivmoddi4                    
-00001fef  __aeabi_idiv0                   
-00001ff1  fputc                           
-0000208d  memcpy                          
-00002127  __aeabi_ldiv0                   
-00002129  SYSCFG_DL_GPIO_init             
-000021b9  PID_Init                        
-00002245  SYSCFG_DL_PWM_0_init            
-000022d1  __aeabi_fmul                    
-000022d1  __mulsf3                        
-0000235c  C$$EXIT                         
-0000235d  HOSTexit                        
+00001f49  __udivmoddi4                    
+00001feb  __aeabi_idiv0                   
+00001fed  fputc                           
+00002089  memcpy                          
+00002123  __aeabi_ldiv0                   
+00002125  SYSCFG_DL_GPIO_init             
+000021b5  PID_Init                        
+00002241  SYSCFG_DL_PWM_0_init            
+000022cd  __aeabi_fmul                    
+000022cd  __mulsf3                        
+00002359  __aeabi_errno_addr              
 00002361  strcmp                          
 000023e9  __aeabi_fdiv                    
 000023e9  __divsf3                        
@@ -858,15 +857,16 @@ address   name
 00003819  __aeabi_memclr8                 
 00003825  malloc                          
 00003831  DL_Common_delayCycles           
-00003861  __aeabi_errno_addr              
-00003869  __aeabi_memcpy                  
-00003869  __aeabi_memcpy4                 
-00003869  __aeabi_memcpy8                 
-00003881  fseek                           
-00003889  remove                          
-00003891  abort                           
-00003897  Reset_Handler                   
-0000389b  _system_pre_init                
+00003861  __aeabi_memcpy                  
+00003861  __aeabi_memcpy4                 
+00003861  __aeabi_memcpy8                 
+00003879  fseek                           
+00003881  remove                          
+00003889  abort                           
+0000388e  C$$EXIT                         
+0000388f  HOSTexit                        
+00003893  Reset_Handler                   
+00003897  _system_pre_init                
 000038a0  __aeabi_ctype_table_            
 000038a0  __aeabi_ctype_table_C           
 00003aa8  __TI_Handler_Table_Base         
